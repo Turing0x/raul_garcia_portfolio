@@ -1,0 +1,47 @@
+---
+const links = [
+  { name: "About", href: "/about" },
+  { name: "Projects", href: "/projects" },
+  { name: "Blog", href: "/blog" },
+  { name: "Contact", href: "/contact" },
+];
+---
+
+<div class="nav-bar">
+  <ul class="nav-bar-list">
+    {
+      links.map((link) => (
+        <li class="nav-bar-item">
+          <a href={link.href}>{link.name}</a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  .nav-bar-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+
+  .nav-bar-item {
+    font-family: "ABold";
+    display: inline-block;
+    white-space: pre;
+    margin-right: 24px;
+    font-size: 20px;
+    padding-bottom: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+
+  .nav-bar-item:hover {
+    color: var(--border-hover-color);
+  }
+</style>
