@@ -1,10 +1,10 @@
 ---
 const links = [
-  { name: "Home", href: "/" },
-  { name: "Projects", href: "#projects" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
-  { name: "My Notes", href: "/notes" },
+  { name: "Home", href: "/", title: "Go to home page" },
+  { name: "Projects", href: "#projects", title: "View my projects" },
+  { name: "About", href: "#about", title: "Learn more about me" },
+  { name: "Contact", href: "#contact", title: "Get in touch" },
+  { name: "My Notes", href: "/notes", title: "Read my technical notes" },
 ];
 ---
 
@@ -12,7 +12,7 @@ const links = [
   <ul class="nav-bar-list">
     {
       links.map((link) => (
-        <li class="nav-bar-item">
+        <li class="nav-bar-item" title={link.title}>
           <a href={link.href}>{link.name}</a>
         </li>
       ))
