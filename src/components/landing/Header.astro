@@ -65,5 +65,49 @@ import MyLinks from "./MyLinks.astro";
       font-family: "ARegular";
       text-align: justify;
     }
+
+    @media (max-width: 1024px) {
+      .landing-header {
+        padding: 2rem 8rem 6rem 8rem;
+        height: auto;
+        min-height: 85dvh;
+      }
+
+      .my-description {
+        min-width: unset;
+        font-size: 20px;
+        line-height: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .landing-header {
+        padding: 2rem 4rem 4rem 4rem;
+      }
+
+      .my-description {
+        font-size: 18px;
+        line-height: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .landing-header {
+        padding: 1.5rem 2rem 3rem 2rem;
+      }
+
+      .my-name {
+        padding: 4px 12px;
+      }
+
+      .my-description {
+        font-size: 16px;
+        line-height: 26px;
+      }
+
+      .main-info-landing {
+        gap: 1.5rem;
+      }
+    }
   </style>
 </header>

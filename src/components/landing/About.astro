@@ -1,5 +1,36 @@
 ---
+const skills = {
+  frontend: [
+    { name: "Angular (Senior)", isSenior: true },
+    { name: "React", isSenior: false },
+    { name: "TypeScript", isSenior: false },
+    { name: "Flutter/Dart", isSenior: false },
+    { name: "HTML/CSS", isSenior: false },
+    { name: "Tailwind", isSenior: false },
+  ],
+  backend: [
+    { name: "Node.js/Express (Senior)", isSenior: true },
+    { name: "MongoDB (Senior)", isSenior: true },
+    { name: "Socket.io (Senior)", isSenior: true },
+    { name: "Spring Boot", isSenior: false },
+    { name: "MySQL", isSenior: false },
+  ],
+  tools: [
+    { name: "Git/GitHub", isSenior: false },
+    { name: "Figma", isSenior: false },
+    { name: "Postman", isSenior: false },
+    { name: "System Architecture", isSenior: false },
+    { name: "Team Leadership", isSenior: true },
+    { name: "Project Management", isSenior: false },
+  ],
+};
 
+const attributes = [
+  "Strong analytical and problem-solving skills developed through complex project management",
+  "Effective team leadership and communication abilities",
+  "Dedication to continuous learning and staying current with technology trends",
+  "Ability to balance technical excellence with business objectives",
+];
 ---
 
 <section id="about" class="about-section">
@@ -9,27 +40,16 @@
     <div class="about-content">
       <div class="personal-info">
         <p class="description">
-          As a <span class="yellow-text">Computer Science Engineering</span>
-          graduate, I specialize in creating <span class="yellow-text"
-            >comprehensive technological solutions</span
-          >, from user interface design to database optimization. My focus is on
-          developing
-          <span class="yellow-text"
-            >efficient, visually appealing, and functional applications</span
-          > that meet the highest quality standards while delivering exceptional
-          user experiences.
-        </p>
-        <p class="description">
-          My journey from a <span class="yellow-text"
-            >computer science student</span
-          > to a senior full-stack developer has been marked by consistent growth
-          and achievement, maintaining a strong <span class="yellow-text"
-            >academic performance (4.28/5 GPA)</span
-          > while gaining practical industry experience. This combination of <span
-            class="yellow-text"
-            >theoretical knowledge and practical expertise</span
-          > enables me to approach each project with both technical precision and
-          strategic insight.
+          I am a <span class="yellow-text">Computer Science Engineering</span>
+          graduate with a strong academic record (GPA 4.28/5) and extensive industry
+          experience as a <span class="yellow-text"
+            >senior full-stack developer</span
+          >. I specialize in crafting efficient, functional, and visually
+          appealing applications, focusing on <span class="yellow-text"
+            >user experience, interface design, and database optimization</span
+          >. My blend of theoretical knowledge and practical expertise allows me
+          to deliver high-quality technological solutions with strategic
+          precision.
         </p>
       </div>
 
@@ -39,33 +59,37 @@
           <div class="skill-category">
             <h4 class="heading-4">Frontend</h4>
             <ul>
-              <li class="with-border">Angular (Senior)</li>
-              <li>React</li>
-              <li>TypeScript</li>
-              <li>Flutter/Dart</li>
-              <li>HTML/CSS</li>
-              <li>Tailwind</li>
+              {
+                skills.frontend.map((skill) => (
+                  <li class={skill.isSenior ? "with-border" : ""}>
+                    {skill.name}
+                  </li>
+                ))
+              }
             </ul>
           </div>
           <div class="skill-category">
             <h4 class="heading-4">Backend</h4>
             <ul>
-              <li class="with-border">Node.js/Express (Senior)</li>
-              <li class="with-border">MongoDB (Senior)</li>
-              <li class="with-border">Socket.io (Senior)</li>
-              <li>Spring Boot</li>
-              <li>MySQL</li>
+              {
+                skills.backend.map((skill) => (
+                  <li class={skill.isSenior ? "with-border" : ""}>
+                    {skill.name}
+                  </li>
+                ))
+              }
             </ul>
           </div>
           <div class="skill-category">
             <h4 class="heading-4">Tools & Others</h4>
             <ul>
-              <li>Git/GitHub</li>
-              <li>Figma</li>
-              <li>Postman</li>
-              <li>System Architecture</li>
-              <li class="with-border">Team Leadership</li>
-              <li>Project Management</li>
+              {
+                skills.tools.map((skill) => (
+                  <li class={skill.isSenior ? "with-border" : ""}>
+                    {skill.name}
+                  </li>
+                ))
+              }
             </ul>
           </div>
         </div>
@@ -74,26 +98,13 @@
       <div class="key-attributes">
         <h3 class="heading-3">Key Professional Attributes</h3>
         <div class="attributes-grid">
-          <div class="attribute-item">
-            <p>
-              Strong analytical and problem-solving skills developed through
-              complex project management
-            </p>
-          </div>
-          <div class="attribute-item">
-            <p>Effective team leadership and communication abilities</p>
-          </div>
-          <div class="attribute-item">
-            <p>
-              Dedication to continuous learning and staying current with
-              technology trends
-            </p>
-          </div>
-          <div class="attribute-item">
-            <p>
-              Ability to balance technical excellence with business objectives
-            </p>
-          </div>
+          {
+            attributes.map((attribute) => (
+              <div class="attribute-item">
+                <p>{attribute}</p>
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
@@ -211,5 +222,54 @@
     font-size: 16px;
     line-height: 1.5;
     margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .about-section {
+      padding: 6rem 2rem;
+    }
+
+    .attributes-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .attribute-item {
+      padding: 1.25rem;
+    }
+
+    .attribute-item p {
+      font-size: 15px;
+    }
+
+    .key-attributes {
+      margin-top: 3rem;
+    }
+
+    .description {
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .about-section {
+      padding: 4rem 2rem;
+    }
+
+    .skill-category li {
+      font-size: 16px;
+    }
+
+    .attribute-item {
+      padding: 1rem;
+    }
+
+    .attribute-item p {
+      font-size: 14px;
+    }
+
+    .key-attributes {
+      margin-top: 2.5rem;
+    }
   }
 </style>

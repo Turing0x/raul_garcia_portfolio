@@ -4,7 +4,7 @@ const links = [
   { name: "Projects", href: "#projects", title: "View my projects" },
   { name: "About", href: "#about", title: "Learn more about me" },
   { name: "Contact", href: "#contact", title: "Get in touch" },
-  { name: "My Notes", href: "/notes", title: "Read my technical notes" },
+  // { name: "My Notes", href: "/notes", title: "Read my technical notes" },
 ];
 ---
 
@@ -26,17 +26,9 @@ const links = [
     align-items: center;
     justify-content: center;
     padding: 40px 0;
-    background: #0575e6; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-      to left,
-      #021b79,
-      #0575e6
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-      to left,
-      #021b79,
-      #0575e6
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #0575e6;
+    background: -webkit-linear-gradient(to left, #021b79, #0575e6);
+    background: linear-gradient(to left, #021b79, #0575e6);
 
     color: #fff;
   }
@@ -59,6 +51,63 @@ const links = [
 
   .nav-bar-item:hover {
     color: var(--border-hover-color);
+  }
+
+  .nav-bar {
+    position: relative;
+  }
+
+  .nav-bar-list {
+    position: relative;
+    gap: 0;
+  }
+
+  @media (max-width: 768px) {
+    .nav-bar-list {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      flex-direction: column;
+      width: 70%;
+      height: 100vh;
+      padding: 80px 0;
+      transition: right 0.3s ease;
+      z-index: 100;
+    }
+
+    .nav-bar-list.active {
+      right: 0;
+    }
+
+    .nav-bar-item {
+      margin: 16px 0;
+      font-size: 18px;
+    }
+
+    .menu-icon {
+      display: block;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      z-index: 200;
+      background: url("/icons/menu.svg") no-repeat center;
+      background-size: contain;
+      filter: invert(1);
+    }
+
+    .menu-icon.active {
+      background: url("/icons/menu.svg") no-repeat center;
+      transform: rotate(90deg);
+    }
+  }
+
+  @media (min-width: 769px) {
+    .menu-icon {
+      display: none;
+    }
   }
 </style>
 
