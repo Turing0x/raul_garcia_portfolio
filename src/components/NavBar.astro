@@ -1,7 +1,7 @@
 ---
 const links = [
+  { name: "Projects", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Projects", href: "/projects" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
@@ -41,7 +41,27 @@ const links = [
     cursor: pointer;
   }
 
+  .nav-bar-item.active {
+    color: var(--border-hover-color);
+  }
+
   .nav-bar-item:hover {
     color: var(--border-hover-color);
   }
 </style>
+
+<script>
+  // Get current path
+  const currentPath = window.location.pathname;
+
+  // Find all nav items
+  const navItems = document.querySelectorAll(".nav-bar-item");
+
+  // Add active class to matching nav item
+  navItems.forEach((item) => {
+    const link = item.querySelector("a");
+    if (link && link.getAttribute("href") === currentPath) {
+      item.classList.add("active");
+    }
+  });
+</script>
