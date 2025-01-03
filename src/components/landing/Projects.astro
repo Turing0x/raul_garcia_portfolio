@@ -1,0 +1,210 @@
+---
+import type { Project } from "../../types/project";
+
+const projects: Project[] = [
+  {
+    title: "Network Service Configuration Module",
+    description:
+      "Led the development of an innovative semi-automated system that revolutionizes how telematic services are configured in Linux environments. This solution transforms traditional manual configuration methods into a streamlined, efficient process for educational settings.",
+    status: "completed",
+    achivements: [
+      "Reduced configuration time by 70% through intelligent automation",
+      "Enhanced learning outcomes with interactive practice scenarios",
+      "Implemented robust error handling and validation systems",
+      "Created an intuitive interface for both educators and students",
+    ],
+    stack: "Linux, Angular, Shell Scripting, Node.js",
+    link: "https://github.com/Turing0x/frontend-tesis",
+    linkText: "See code on GitHub",
+  },
+  {
+    title: "4Life Tips | Health Product Platform",
+    description:
+      "Architected a dynamic platform that bridges the gap between health products and consumer understanding, focusing on accessibility and user education.",
+    status: "completed",
+    achivements: [
+      "Intelligent product recommendation engine",
+      "Interactive product guides",
+      "Secure payment processing",
+      "Mobile-first responsive design",
+    ],
+    stack: "Angular, Node.js, MongoDB, TropiPay",
+    link: "https://4lifetips.com/",
+    linkText: "See web page",
+  },
+  {
+    title: "IndustrialX | E-commerce Solution",
+    description:
+      "Developing a cutting-edge e-commerce platform tailored for Cuba's food industry, focusing on creating seamless connections between vendors and consumers.",
+    status: "in-progress",
+    achivements: [
+      "Real-time inventory management",
+      "TropiPay payment integration",
+      "Advanced search and filtering",
+      "Mobile-responsive design",
+      "Push notification system",
+    ],
+    stack: "Angular, Node.js, MongoDB, TropiPay",
+    link: "https://industialx-frontend.pages.dev/",
+    linkText: "See web page",
+  },
+  {
+    title: "Travel With Me | Transportation Platform",
+    description:
+      "Revolutionized Cuba's travel industry with a mobile-first platform that streamlines transportation services across the country.",
+    status: "not-started",
+    achivements: [
+      "Real-time booking system",
+      "Provider management dashboard",
+      "Route optimization",
+      "Integrated payment solutions",
+      "Offline functionality",
+    ],
+    stack: " Flutter, Node.js, MongoDB, Firebase",
+    link: "",
+    linkText: "Mobile Application",
+  },
+];
+---
+
+<section class="projects">
+  <h2 class="heading-2">Projects</h2>
+  <div class="projects-container">
+    {
+      projects.map((project) => (
+        <div class={`project ${project.status}`}>
+          <span class="project-header">
+            <h3 class="project-title heading-3">{project.title}</h3>
+
+            <a href={project.link} target="_blank">
+              <img
+                src="/icons/web_link.svg"
+                alt="Web Search"
+                title={project.linkText}
+              />
+
+              <p class="heading-4">{project.linkText}</p>
+            </a>
+          </span>
+
+          <p class="heading-4">{project.description}</p>
+          <div class="project-status">
+            <div class={`project-status-dot ${project.status}`} />
+            <p class="heading-4">{project.status}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .projects {
+    background-color: #000;
+    padding: 10rem 15rem;
+  }
+
+  .projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .project {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #111;
+    padding: 2rem;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: border 0.2s ease-in-out;
+  }
+
+  .project:hover {
+    border: 1px solid #f80;
+
+    & a {
+      background-color: #784a15;
+    }
+
+    .project-title::after {
+      width: 85%;
+    }
+  }
+
+  .project-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .project-title {
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: #784a15;
+      transition: width 0.2s ease-in-out;
+    }
+  }
+
+  .project-header a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+  }
+
+  .project-header img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .project.completed {
+    background-color: hsla(156, 100%, 2%, 1);
+  }
+
+  .project.in-progress {
+    background-color: hsla(195, 68%, 4%, 1);
+  }
+
+  .project.not-started {
+    background-color: hsla(13, 43%, 4%, 1);
+  }
+
+  .project-status {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .project-status-dot {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+  }
+
+  .project-status-dot.completed {
+    background-color: #0f0;
+  }
+
+  .project-status-dot.in-progress {
+    background-color: #3291ff;
+  }
+
+  .project-status-dot.not-started {
+    background-color: #f80;
+  }
+</style>

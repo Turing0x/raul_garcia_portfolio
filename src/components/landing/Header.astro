@@ -1,9 +1,11 @@
 ---
+import NavBar from "../navbar/NavBar.astro";
 import MyLinks from "./MyLinks.astro";
 ---
 
 <header class="landing-header">
   <section class="main-info-landing">
+    <NavBar />
     <div class="my-name heading-3">👋 Raúl García Fernández</div>
     <div class="heading-1">Full Stack Web & Mobile Developer</div>
 
@@ -14,9 +16,8 @@ import MyLinks from "./MyLinks.astro";
       MongoDB. I'm always looking for new challenges and opportunities to learn
       and grow.
     </div>
-
-    <MyLinks />
   </section>
+  <MyLinks />
 </header>
 
 <style>
@@ -25,6 +26,8 @@ import MyLinks from "./MyLinks.astro";
     padding: 0 15rem 10rem 15rem;
     display: flex;
     flex-direction: column;
+    height: 100dvh;
+    justify-content: space-between;
   }
 
   .main-info-landing {
@@ -47,5 +50,6 @@ import MyLinks from "./MyLinks.astro";
     line-height: 34px;
     min-width: 640px;
     font-family: "ARegular";
+    text-align: justify;
   }
 </style>
