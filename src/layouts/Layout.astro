@@ -13,10 +13,106 @@
 </html>
 
 <style>
-  html,
-  body {
+  @font-face {
+    font-family: "Macondo";
+    src: url("/fonts/Macondo-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "ARegular";
+    src: url("/fonts/AnonymousPro-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "ABold";
+    src: url("/fonts/AnonymousPro-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "AItalic";
+    src: url("/fonts/AnonymousPro-Italic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  :root {
+    box-sizing: border-box;
     margin: 0;
-    width: 100%;
-    height: 100%;
+    padding: 0;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: "ARegular", "Poppins", sans-serif;
+    color: #fff;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  #root,
+  #__next,
+  #__astro {
+    isolation: isolate;
+  }
+
+  /* Remove list styles */
+  ul,
+  ol {
+    list-style: none;
+  }
+
+  /* Remove default button styles */
+  button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  /* Remove text decoration from links */
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 </style>

@@ -1,0 +1,58 @@
+---
+const links = [
+  {
+    icon: "github",
+    name: "GitHub",
+    url: "https://github.com/Turing0x",
+  },
+  {
+    icon: "linkedin",
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/raul-garc%C3%ADa-630467116/",
+  },
+  {
+    icon: "protonmail",
+    name: "Email",
+    url: "mailto:rauligf97@proton.me",
+  },
+];
+---
+
+<div class="my-links">
+  {
+    links.map((link) => (
+      <a href={link.url} target="_blank">
+        <img src={`/icons/${link.icon}.svg`} alt={link.name} />
+        <span>{link.name}</span>
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .my-links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .my-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 30px;
+    font-size: 24px;
+    line-height: 34px;
+    gap: 1rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .my-links a img {
+    width: 26px;
+    height: 26px;
+  }
+
+  .my-links a:hover {
+    border-color: #f80;
+  }
+</style>

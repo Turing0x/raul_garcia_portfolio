@@ -1,0 +1,58 @@
+---
+import MyLinks from "./MyLinks.astro";
+---
+
+<header class="landing-header">
+  <section class="main-info-landing">
+    <div class="my-name">Raúl García Fernández</div>
+    <div class="my-job">Full Stack Web & Mobile Developer</div>
+
+    <div class="my-description">
+      I'm a full stack web and mobile developer with a passion for creating
+      innovative and efficient solutions. I have a strong background in
+      JavaScript, TypeScript, Angular, RxJS, Node.js, and MongoDB. I'm always
+      looking for new challenges and opportunities to learn and grow.
+    </div>
+
+    <MyLinks />
+  </section>
+</header>
+
+<style>
+  .landing-header {
+    background-color: #054ada;
+    padding: 2rem 15rem;
+    display: flex;
+    height: 100dvh;
+    flex-direction: column;
+  }
+
+  .main-info-landing {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .my-name {
+    background-color: #1e1e1e;
+    padding: 6px 16px;
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    font-size: 32px;
+    font-family: "ABold";
+  }
+
+  .my-job {
+    font-size: 92px;
+    line-height: 80px;
+    font-family: "ABold";
+  }
+
+  .my-description {
+    font-size: 24px;
+    line-height: 34px;
+    min-width: 640px;
+    font-family: "ARegular";
+  }
+</style>
