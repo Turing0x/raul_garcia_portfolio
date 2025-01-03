@@ -1,0 +1,146 @@
+---
+import OthersProjects from "./OthersProjects.astro";
+---
+
+<section class="about-section">
+  <div class="about-container">
+    <h2 class="heading-1">About Me</h2>
+
+    <div class="about-content">
+      <div class="personal-info">
+        <p class="description">
+          As a <span class="yellow-text">Computer Science Engineering</span>
+          graduate, I specialize in creating <span class="yellow-text"
+            >comprehensive technological solutions</span
+          >, from user interface design to database optimization. My focus is on
+          developing
+          <span class="yellow-text"
+            >efficient, visually appealing, and functional applications</span
+          > that meet the highest quality standards while delivering exceptional
+          user experiences.
+        </p>
+      </div>
+
+      <div class="expertise">
+        <h3 class="heading-3">Core Expertise</h3>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4 class="heading-4">Frontend</h4>
+            <ul>
+              <li class="with-border">Angular (Senior)</li>
+              <li>React</li>
+              <li>TypeScript</li>
+              <li>Flutter/Dart</li>
+              <li>HTML/CSS</li>
+              <li>Tailwind</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h4 class="heading-4">Backend</h4>
+            <ul>
+              <li class="with-border">Node.js/Express (Senior)</li>
+              <li class="with-border">MongoDB (Senior)</li>
+              <li class="with-border">Socket.io (Senior)</li>
+              <li>Spring Boot</li>
+              <li>MySQL</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h4 class="heading-4">Tools & Others</h4>
+            <ul>
+              <li>Git/GitHub</li>
+              <li>Figma</li>
+              <li>Postman</li>
+              <li>System Architecture</li>
+              <li class="with-border">Team Leadership</li>
+              <li>Project Management</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    background: #373b44; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #4286f4,
+      #373b44
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #4286f4,
+      #373b44
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    padding: 8rem 15rem;
+    color: #fff;
+  }
+
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .personal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .description {
+    font-size: 20px;
+    line-height: 1.6;
+    max-width: 900px;
+    text-align: justify;
+  }
+
+  .expertise {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .skill-category {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .skill-category h4 {
+    color: #f80;
+    font-family: "ABold";
+  }
+
+  .skill-category ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .skill-category li {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .with-border {
+    border-bottom: 1px solid #f80;
+    width: fit-content;
+  }
+</style>
