@@ -1,17 +1,18 @@
 ---
-import MyLinks from "./MyLinks.astro";
+import MyLinks from "../navbar/MyLinks.astro";
 ---
 
 <header class="landing-header">
   <section class="main-info-landing">
-    <div class="my-name">Raúl García Fernández</div>
-    <div class="my-job">Full Stack Web & Mobile Developer</div>
+    <div class="my-name heading-3">Raúl García Fernández</div>
+    <div class="heading-1">Full Stack Web & Mobile Developer</div>
 
     <div class="my-description">
       I'm a full stack web and mobile developer with a passion for creating
       innovative and efficient solutions. I have a strong background in
-      JavaScript, TypeScript, Angular, RxJS, Node.js, and MongoDB. I'm always
-      looking for new challenges and opportunities to learn and grow.
+      JavaScript, TypeScript, Angular, RxJS, Node.js, Flutter - Dart and
+      MongoDB. I'm always looking for new challenges and opportunities to learn
+      and grow.
     </div>
 
     <MyLinks />
@@ -21,9 +22,8 @@ import MyLinks from "./MyLinks.astro";
 <style>
   .landing-header {
     background-color: var(--primary-color);
-    padding: 2rem 15rem;
+    padding: 0 15rem 10rem 15rem;
     display: flex;
-    height: 100dvh;
     flex-direction: column;
   }
 
@@ -39,13 +39,6 @@ import MyLinks from "./MyLinks.astro";
     display: flex;
     width: fit-content;
     align-items: center;
-    font-size: 32px;
-    font-family: "ABold";
-  }
-
-  .my-job {
-    font-size: 92px;
-    line-height: 80px;
     font-family: "ABold";
   }
 

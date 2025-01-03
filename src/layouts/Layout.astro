@@ -1,5 +1,5 @@
 ---
-import NavBar from "../components/NavBar.astro";
+import NavBar from "../components/navbar/NavBar.astro";
 ---
 
 <!doctype html>
@@ -19,7 +19,7 @@ import NavBar from "../components/NavBar.astro";
   </body>
 </html>
 
-<style>
+<style is:global>
   @font-face {
     font-family: "Macondo";
     src: url("/fonts/Macondo-Regular.ttf") format("truetype");
@@ -59,6 +59,29 @@ import NavBar from "../components/NavBar.astro";
 
     --primary-color: #054ada;
     --border-hover-color: #f80;
+    --grey-text-color: rgba(255, 255, 255, 0.6);
+  }
+
+  .heading-1 {
+    font-size: 92px;
+    line-height: 80px;
+    font-family: "ABold";
+  }
+
+  .heading-2 {
+    font-size: 64px;
+    line-height: 60px;
+    font-family: "ABold";
+  }
+
+  .heading-3 {
+    font-size: 32px;
+    line-height: 34px;
+  }
+
+  .heading-4 {
+    font-size: 16px;
+    line-height: 20px;
   }
 
   *,
