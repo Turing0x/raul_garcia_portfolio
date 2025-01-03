@@ -1,8 +1,8 @@
 ---
-import OthersProjects from "./OthersProjects.astro";
+
 ---
 
-<section class="about-section">
+<section id="about" class="about-section">
   <div class="about-container">
     <h2 class="heading-1">About Me</h2>
 
@@ -18,6 +18,18 @@ import OthersProjects from "./OthersProjects.astro";
             >efficient, visually appealing, and functional applications</span
           > that meet the highest quality standards while delivering exceptional
           user experiences.
+        </p>
+        <p class="description">
+          My journey from a <span class="yellow-text"
+            >computer science student</span
+          > to a senior full-stack developer has been marked by consistent growth
+          and achievement, maintaining a strong <span class="yellow-text"
+            >academic performance (4.28/5 GPA)</span
+          > while gaining practical industry experience. This combination of <span
+            class="yellow-text"
+            >theoretical knowledge and practical expertise</span
+          > enables me to approach each project with both technical precision and
+          strategic insight.
         </p>
       </div>
 
@@ -55,6 +67,32 @@ import OthersProjects from "./OthersProjects.astro";
               <li class="with-border">Team Leadership</li>
               <li>Project Management</li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="key-attributes">
+        <h3 class="heading-3">Key Professional Attributes</h3>
+        <div class="attributes-grid">
+          <div class="attribute-item">
+            <p>
+              Strong analytical and problem-solving skills developed through
+              complex project management
+            </p>
+          </div>
+          <div class="attribute-item">
+            <p>Effective team leadership and communication abilities</p>
+          </div>
+          <div class="attribute-item">
+            <p>
+              Dedication to continuous learning and staying current with
+              technology trends
+            </p>
+          </div>
+          <div class="attribute-item">
+            <p>
+              Ability to balance technical excellence with business objectives
+            </p>
           </div>
         </div>
       </div>
@@ -142,5 +180,36 @@ import OthersProjects from "./OthersProjects.astro";
   .with-border {
     border-bottom: 1px solid #f80;
     width: fit-content;
+  }
+
+  .key-attributes {
+    margin-top: 4rem;
+  }
+
+  .attributes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .attribute-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .attribute-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .attribute-item p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
   }
 </style>

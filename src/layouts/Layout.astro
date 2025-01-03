@@ -1,5 +1,6 @@
 ---
 import Footer from "../components/Footer.astro";
+import NavBar from "../components/NavBar.astro";
 ---
 
 <!doctype html>
@@ -8,13 +9,15 @@ import Footer from "../components/Footer.astro";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
     <title>Raúl García Fernández - Full Stack Web & Mobile Developer</title>
   </head>
   <body>
+    <NavBar />
+
     <main>
       <slot />
     </main>
+
     <Footer />
   </body>
 </html>

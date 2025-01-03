@@ -1,9 +1,10 @@
 ---
 const links = [
-  { name: "Projects", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Blog", href: "/blog" },
-  { name: "Contact", href: "/contact" },
+  { name: "Home", href: "/" },
+  { name: "Projects", href: "#projects" },
+  { name: "About", href: "#about" },
+  { name: "Contact", href: "#contact" },
+  { name: "My Notes", href: "/notes" },
 ];
 ---
 
@@ -51,16 +52,21 @@ const links = [
 </style>
 
 <script>
-  // Get current path
   const currentPath = window.location.pathname;
 
-  // Find all nav items
   const navItems = document.querySelectorAll(".nav-bar-item");
 
-  // Add active class to matching nav item
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   navItems.forEach((item) => {
     const link = item.querySelector("a");
     if (link && link.getAttribute("href") === currentPath) {
+      scrollToSection(link.getAttribute("href")!);
       item.classList.add("active");
     }
   });

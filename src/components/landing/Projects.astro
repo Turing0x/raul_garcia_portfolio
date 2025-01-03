@@ -73,7 +73,7 @@ const getProjectStatus = (status: string) => {
 };
 ---
 
-<section class="projects">
+<section id="projects" class="projects">
   <h2 class="heading-2">Projects</h2>
   <div class="projects-container">
     {
@@ -128,7 +128,8 @@ const getProjectStatus = (status: string) => {
     transition: border 0.2s ease-in-out;
   }
 
-  .project:hover {
+  .project:hover,
+  .project.active {
     border: 1px solid #f80;
 
     & a {
@@ -214,3 +215,27 @@ const getProjectStatus = (status: string) => {
     background-color: #f80;
   }
 </style>
+
+<script>
+  const projectSection = document.getElementById("projects");
+  const projects = document.querySelectorAll(".project");
+
+  projects.forEach((project) => {
+    project.addEventListener("mouseover", () => {
+      projects.forEach((project) => {
+        project.classList.remove("active");
+      });
+    });
+  });
+
+  document.addEventListener("scroll", () => {
+    if (
+      projectSection?.offsetTop &&
+      projectSection.offsetTop < window.scrollY
+    ) {
+      projects[0].classList.add("active");
+    } else {
+      projects[0].classList.remove("active");
+    }
+  });
+</script>
