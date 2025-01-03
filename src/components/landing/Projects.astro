@@ -65,6 +65,12 @@ const projects: Project[] = [
     linkText: "Mobile Application",
   },
 ];
+
+const getProjectStatus = (status: string) => {
+  if (status === "completed") return "Completed";
+  if (status === "in-progress") return "In Progress";
+  if (status === "not-started") return "Not Started";
+};
 ---
 
 <section class="projects">
@@ -90,7 +96,7 @@ const projects: Project[] = [
           <p class="heading-4">{project.description}</p>
           <div class="project-status">
             <div class={`project-status-dot ${project.status}`} />
-            <p class="heading-4">{project.status}</p>
+            <p class="heading-4">{getProjectStatus(project.status)}</p>
           </div>
         </div>
       ))

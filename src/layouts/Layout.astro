@@ -1,5 +1,5 @@
 ---
-
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
@@ -15,6 +15,7 @@
     <main>
       <slot />
     </main>
+    <Footer />
   </body>
 </html>
 
@@ -86,6 +87,10 @@
   .heading-4 {
     font-size: 18px;
     line-height: 20px;
+  }
+
+  .yellow-text {
+    color: #f80;
   }
 
   *,

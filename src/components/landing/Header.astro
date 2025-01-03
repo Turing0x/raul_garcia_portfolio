@@ -7,49 +7,54 @@ import MyLinks from "./MyLinks.astro";
   <section class="main-info-landing">
     <NavBar />
     <div class="my-name heading-3">👋 Raúl García Fernández</div>
-    <div class="heading-1">Full Stack Web & Mobile Developer</div>
+    <div class="heading-1">
+      Full Stack Web <span class="yellow-text">&</span> Mobile Developer
+    </div>
 
     <div class="my-description">
-      I'm a full stack web and mobile developer with a passion for creating
-      innovative and efficient solutions. I have a strong background in
-      JavaScript, TypeScript, Angular, RxJS, Node.js, Flutter - Dart and
-      MongoDB. I'm always looking for new challenges and opportunities to learn
-      and grow.
+      I'm a <span class="yellow-text">full stack web and mobile developer</span>
+      with a passion for creating <span class="yellow-text"
+        >innovative and efficient solutions</span
+      >. I have a <span class="yellow-text">strong background</span> in JavaScript,
+      TypeScript, Angular, RxJS, Node.js, Flutter - Dart and MongoDB. I'm always
+      looking for new challenges and <span class="yellow-text"
+        >opportunities to learn and grow.
+      </span>
     </div>
   </section>
   <MyLinks />
+
+  <style>
+    .landing-header {
+      background-color: var(--primary-color);
+      padding: 0 15rem 10rem 15rem;
+      display: flex;
+      flex-direction: column;
+      height: 100dvh;
+      justify-content: space-between;
+    }
+
+    .main-info-landing {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .my-name {
+      background-color: #1e1e1e;
+      padding: 6px 16px;
+      display: flex;
+      width: fit-content;
+      align-items: center;
+      font-family: "ABold";
+    }
+
+    .my-description {
+      font-size: 24px;
+      line-height: 34px;
+      min-width: 640px;
+      font-family: "ARegular";
+      text-align: justify;
+    }
+  </style>
 </header>
-
-<style>
-  .landing-header {
-    background-color: var(--primary-color);
-    padding: 0 15rem 10rem 15rem;
-    display: flex;
-    flex-direction: column;
-    height: 100dvh;
-    justify-content: space-between;
-  }
-
-  .main-info-landing {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .my-name {
-    background-color: #1e1e1e;
-    padding: 6px 16px;
-    display: flex;
-    width: fit-content;
-    align-items: center;
-    font-family: "ABold";
-  }
-
-  .my-description {
-    font-size: 24px;
-    line-height: 34px;
-    min-width: 640px;
-    font-family: "ARegular";
-    text-align: justify;
-  }
-</style>
