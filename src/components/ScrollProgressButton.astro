@@ -1,0 +1,91 @@
+---
+
+---
+
+<button id="scroll-progress-btn" class="scroll-btn">
+  <img src="/icons/arrow_up.svg" alt="arrow up" />
+</button>
+
+<style>
+  .scroll-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: #1c4353;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 0.2s ease;
+  }
+
+  .scroll-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    padding: 2px; /* Grosor del borde */
+    background: conic-gradient(#f80 var(--progress, 0%), transparent 0);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  .scroll-btn img {
+    color: #f80;
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .scroll-btn:hover img {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease;
+  }
+</style>
+
+<script>
+  const btn = document.getElementById("scroll-progress-btn");
+
+  // Función para calcular el progreso del scroll
+  const calculateScrollProgress = () => {
+    const windowHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = window.scrollY;
+    const progress = (scrolled / windowHeight) * 100;
+    return Math.min(progress, 100);
+  };
+
+  // Función para actualizar la animación
+  const updateProgress = () => {
+    if (btn) {
+      const progress = calculateScrollProgress();
+      btn.style.setProperty("--progress", `${progress}%`);
+      btn.style.opacity = progress > 0 ? "1" : "0";
+    }
+  };
+
+  // Función para scroll hacia arriba
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  // Event listeners
+  window.addEventListener("scroll", updateProgress);
+  btn?.addEventListener("click", scrollToTop);
+</script>
