@@ -30,9 +30,10 @@
 
 <style>
   .footer {
-    background-color: #f5f5ff;
+    background: #213740;
+    background: -webkit-linear-gradient(to right, #293033, #554839);
+    background: linear-gradient(to right, #293033, #554839);
     padding: 10rem 15rem;
-    color: #000;
   }
 
   .footer-content {
@@ -45,11 +46,15 @@
     flex: 1;
   }
 
+  .footer-left h2 {
+    color: #f80;
+  }
+
   .subtitle {
     margin-top: 2rem;
     font-size: 18px;
     line-height: 1.5;
-    color: #666;
+    color: #e2e2e2;
     max-width: 400px;
   }
 
@@ -73,6 +78,12 @@
     font-size: 1.5rem;
     width: 100%;
     background: transparent;
+    color: #e2e2e2;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #e2e2e2;
   }
 
   textarea {
@@ -117,11 +128,7 @@
   }
 
   .submit-btn:hover {
-    color: #e2e2e2;
-
-    & img {
-      filter: brightness(0) invert(1);
-    }
+    color: #1d4d62;
   }
 
   .submit-btn > * {

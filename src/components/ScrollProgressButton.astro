@@ -4,43 +4,49 @@
 
 <button id="scroll-progress-btn" class="scroll-btn large">
   <span>Scroll Down</span>
-  <img src="/icons/arrow_down.svg" alt="arrow down" />
+  <img class="arrow-down" src="/icons/arrow_down.svg" alt="arrow down" />
 </button>
 
 <style>
   .scroll-btn {
+    --btn-background: #1c4353;
+    --transition-timing: 0.2s ease-in-out;
+
     display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background: #1c4353;
+    background: var(--btn-background);
     border: none;
-    cursor: pointer;
     z-index: 100;
     overflow: hidden;
     transition:
-      transform 0.2s ease-in-out,
-      width 0.2s ease-in-out,
-      height 0.2s ease-in-out,
-      border-radius 0.2s ease-in-out,
-      font-size 0.2s ease-in-out,
-      gap 0.2s ease-in-out,
-      padding 0.2s ease-in-out;
+      transform var(--transition-timing),
+      width var(--transition-timing),
+      height var(--transition-timing),
+      border-radius var(--transition-timing),
+      font-size var(--transition-timing),
+      gap var(--transition-timing),
+      padding var(--transition-timing);
   }
 
   .scroll-btn.short {
-    width: 4rem;
-    height: 4rem;
+    --btn-size: 4rem;
+    width: var(--btn-size);
+    height: var(--btn-size);
     border-radius: 50%;
+    cursor: pointer;
   }
 
   .scroll-btn.large {
+    --btn-padding: 6px 18px;
     gap: 1rem;
     border-radius: 0.2rem;
-    padding: 6px 18px;
+    padding: var(--btn-padding);
     font-size: 1.2rem;
+    pointer-events: none;
   }
 
   .scroll-btn::before {
@@ -67,16 +73,24 @@
     z-index: 1;
   }
 
-  .scroll-btn:hover img {
-    transform: translateY(-2px);
-    transition: transform 0.2s ease;
+  .arrow-down {
+    animation: bounce 1s infinite;
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-2px);
+    }
   }
 </style>
 
 <script>
   const btn = document.getElementById("scroll-progress-btn");
 
-  // Función para calcular el progreso del scroll
   const calculateScrollProgress = () => {
     const windowHeight =
       document.documentElement.scrollHeight - window.innerHeight;
@@ -85,7 +99,6 @@
     return Math.min(progress, 100);
   };
 
-  // Función para actualizar la animación
   const updateProgress = () => {
     if (btn) {
       const progress = calculateScrollProgress();
@@ -102,13 +115,12 @@
 
         btn.innerHTML = `
         <span>Scroll Down</span>
-        <img src="/icons/arrow_down.svg" alt="arrow down" />
+        <img class="arrow-down" src="/icons/arrow_down.svg" alt="arrow down" />
         `;
       }
     }
   };
 
-  // Función para scroll hacia arriba
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
