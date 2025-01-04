@@ -2,8 +2,9 @@
 
 ---
 
-<button id="scroll-progress-btn" class="scroll-btn">
-  <img src="/icons/arrow_up.svg" alt="arrow up" />
+<button id="scroll-progress-btn" class="scroll-btn large">
+  <span>Scroll Down</span>
+  <img src="/icons/arrow_down.svg" alt="arrow down" />
 </button>
 
 <style>
@@ -14,16 +15,32 @@
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 50%;
     background: #1c4353;
     border: none;
     cursor: pointer;
     z-index: 100;
-    opacity: 0;
     overflow: hidden;
-    transition: opacity 0.2s ease;
+    transition:
+      transform 0.2s ease-in-out,
+      width 0.2s ease-in-out,
+      height 0.2s ease-in-out,
+      border-radius 0.2s ease-in-out,
+      font-size 0.2s ease-in-out,
+      gap 0.2s ease-in-out,
+      padding 0.2s ease-in-out;
+  }
+
+  .scroll-btn.short {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+  }
+
+  .scroll-btn.large {
+    gap: 1rem;
+    border-radius: 0.2rem;
+    padding: 6px 18px;
+    font-size: 1.2rem;
   }
 
   .scroll-btn::before {
@@ -73,7 +90,21 @@
     if (btn) {
       const progress = calculateScrollProgress();
       btn.style.setProperty("--progress", `${progress}%`);
-      btn.style.opacity = progress > 0 ? "1" : "0";
+
+      if (progress > 0) {
+        btn.classList.remove("large");
+        btn.classList.add("short");
+
+        btn.innerHTML = `<img src="/icons/arrow_up.svg" alt="arrow up" />`;
+      } else {
+        btn.classList.remove("short");
+        btn.classList.add("large");
+
+        btn.innerHTML = `
+        <span>Scroll Down</span>
+        <img src="/icons/arrow_down.svg" alt="arrow down" />
+        `;
+      }
     }
   };
 
