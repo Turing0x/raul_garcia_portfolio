@@ -101,7 +101,7 @@ const attributes = [
           {
             attributes.map((attribute) => (
               <div class="attribute-item">
-                <p>{attribute}</p>
+                <p class="heading-4">{attribute}</p>
               </div>
             ))
           }
@@ -118,7 +118,7 @@ const attributes = [
     background: linear-gradient(to right, #1d1d1d, #37291a);
 
     padding: 8rem 15rem;
-    color: #fff;
+    color: #e2e2e2;
   }
 
   .about-container {
@@ -166,8 +166,7 @@ const attributes = [
 
   .skill-category h4 {
     color: #f80;
-    font-family: "space-grotesk-variable";
-    font-weight: 700;
+    font-family: "space-grotesk-bold";
   }
 
   .skill-category ul {
@@ -209,12 +208,6 @@ const attributes = [
 
   .attribute-item:hover {
     transform: translateY(-5px);
-  }
-
-  .attribute-item p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin: 0;
   }
 
   @media (max-width: 768px) {
