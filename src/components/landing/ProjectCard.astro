@@ -8,7 +8,7 @@ interface Props {
 const getProjectStatus = (status: string) => {
   if (status === "completed") return "Completed";
   if (status === "in-progress") return "In Progress";
-  if (status === "not-started") return "Not Started";
+  if (status === "not-started") return "Coming Soon";
 };
 
 const { project } = Astro.props as Props;
