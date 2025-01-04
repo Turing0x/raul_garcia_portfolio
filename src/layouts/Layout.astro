@@ -178,13 +178,6 @@ import { ClientRouter } from "astro:transitions";
     isolation: isolate;
   }
 
-  /* Remove list styles */
-  ul,
-  ol {
-    list-style: none;
-  }
-
-  /* Remove default button styles */
   button {
     background: none;
     border: none;
@@ -192,10 +185,33 @@ import { ClientRouter } from "astro:transitions";
     cursor: pointer;
   }
 
-  /* Remove text decoration from links */
   a {
     text-decoration: none;
     color: inherit;
+  }
+
+  /* Custom scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #213740;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #f80;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff9920;
+  }
+
+  /* Firefox scrollbar styles */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #f80 #213740;
   }
 
   @media (max-width: 1024px) {
