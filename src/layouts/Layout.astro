@@ -11,6 +11,45 @@ import { ClientRouter } from "astro:transitions";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="https://use.typekit.net/ekh0rxd.css" />
+
+    <meta
+      name="description"
+      content="Full Stack Web & Mobile Developer specializing in JavaScript, TypeScript, Angular, RxJS, Node.js, Flutter and MongoDB. Creating innovative and efficient solutions."
+    />
+    <meta
+      name="keywords"
+      content="Full Stack Developer, Web Developer, Mobile Developer, JavaScript, TypeScript, Angular, RxJS, Node.js, Flutter, Dart, MongoDB"
+    />
+    <meta name="author" content="Raúl García Fernández" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Raúl García Fernández - Full Stack Web & Mobile Developer"
+    />
+    <meta
+      property="og:description"
+      content="Full Stack Web & Mobile Developer specializing in JavaScript, TypeScript, Angular, RxJS, Node.js, Flutter and MongoDB. Creating innovative and efficient solutions."
+    />
+    <meta property="og:image" content="/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Raúl García Fernández - Full Stack Web & Mobile Developer"
+    />
+    <meta
+      name="twitter:description"
+      content="Full Stack Web & Mobile Developer specializing in JavaScript, TypeScript, Angular, RxJS, Node.js, Flutter and MongoDB. Creating innovative and efficient solutions."
+    />
+    <meta name="twitter:image" content="/og-image.jpg" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#213740" />
+
     <title>Raúl García Fernández - Full Stack Web & Mobile Developer</title>
   </head>
   <body>
@@ -27,30 +66,6 @@ import { ClientRouter } from "astro:transitions";
 </html>
 
 <style is:global>
-  @font-face {
-    font-family: "ARegular";
-    src: url("/fonts/AnonymousPro-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "ABold";
-    src: url("/fonts/AnonymousPro-Bold.ttf") format("truetype");
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "AItalic";
-    src: url("/fonts/AnonymousPro-Italic.ttf") format("truetype");
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-  }
-
   :root {
     box-sizing: border-box;
     margin: 0;
@@ -64,13 +79,14 @@ import { ClientRouter } from "astro:transitions";
   .heading-1 {
     font-size: 72px;
     line-height: 70px;
-    font-family: "ABold";
+    font-family: "space-grotesk-variable", "Poppins", sans-serif;
+    font-weight: 700;
   }
 
   .heading-2 {
     font-size: 60px;
     line-height: 58px;
-    font-family: "ABold";
+    font-family: "space-grotesk-variable", "Poppins", sans-serif;
   }
 
   .heading-3-48 {
@@ -81,11 +97,14 @@ import { ClientRouter } from "astro:transitions";
   .heading-3 {
     font-size: 28px;
     line-height: 28px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
   }
 
   .heading-4 {
     font-size: 18px;
-    line-height: 20px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
   }
 
   .yellow-text {
@@ -101,9 +120,9 @@ import { ClientRouter } from "astro:transitions";
   }
 
   body {
-    font-family: "ARegular", "Poppins", sans-serif;
-    color: #fff;
-    line-height: 1.5;
+    font-family: "space-grotesk-variable", sans-serif;
+    font-variation-settings: "wght" 300;
+    color: #e2e2e2;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
