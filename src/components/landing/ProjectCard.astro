@@ -18,15 +18,19 @@ const { project } = Astro.props as Props;
   <span class="project-header">
     <h3 class="project-title heading-3">{project.title}</h3>
 
-    <a href={project.link} target="_blank">
-      <img
-        src="/icons/web_link.svg"
-        alt="Web Search"
-        title={project.linkText}
-      />
+    {
+      project.link && (
+        <a href={project.link} target="_blank">
+          <img
+            src="/icons/web_link.svg"
+            alt="Web Search"
+            title={project.linkText}
+          />
 
-      <p class="heading-4">{project.linkText}</p>
-    </a>
+          <p class="heading-4">{project.linkText}</p>
+        </a>
+      )
+    }
   </span>
 
   <p class="heading-4">{project.description}</p>
