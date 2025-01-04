@@ -68,7 +68,7 @@ const projects: Project[] = [
 ];
 ---
 
-<section id="projects" class="projects">
+<section class="projects">
   <h2 class="heading-2">Projects</h2>
   <div class="projects-container">
     {projects.map((project) => <ProjectCard project={project} />)}
@@ -78,6 +78,9 @@ const projects: Project[] = [
 <style>
   .projects {
     background-color: #000;
+    display: flex;
+    gap: 4rem;
+    flex-direction: column;
     padding: 10rem 15rem;
   }
 
@@ -100,27 +103,3 @@ const projects: Project[] = [
     }
   }
 </style>
-
-<script>
-  const projectSection = document.getElementById("projects");
-  const projects = document.querySelectorAll(".project");
-
-  projects.forEach((project) => {
-    project.addEventListener("mouseover", () => {
-      projects.forEach((project) => {
-        project.classList.remove("active");
-      });
-    });
-  });
-
-  document.addEventListener("scroll", () => {
-    if (
-      projectSection?.offsetTop &&
-      projectSection.offsetTop < window.scrollY
-    ) {
-      projects[0].classList.add("active");
-    } else {
-      projects[0].classList.remove("active");
-    }
-  });
-</script>

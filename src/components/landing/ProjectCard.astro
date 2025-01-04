@@ -44,8 +44,10 @@ const { project } = Astro.props as Props;
     background-color: #111;
     padding: 2rem;
     border-radius: 5px;
-    border: 1px solid transparent;
+    border: 1px solid hsla(0, 0%, 16%, 1);
     transition: border 0.2s ease-in-out;
+    background-size: 80px 80px;
+    background-position: center center;
   }
 
   .project:hover,
@@ -102,14 +104,26 @@ const { project } = Astro.props as Props;
 
   .project.completed {
     background-color: hsla(156, 100%, 2%, 1);
+    background-image: linear-gradient(
+        hsla(155, 78%, 9%, 1) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, hsla(155, 78%, 9%, 1) 1px, transparent 1px);
   }
 
   .project.in-progress {
     background-color: hsla(195, 68%, 4%, 1);
+    background-image: linear-gradient(
+        hsla(195, 51%, 13%, 1) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, hsla(195, 51%, 13%, 1) 1px, transparent 1px);
   }
 
   .project.not-started {
     background-color: hsla(13, 43%, 4%, 1);
+    background-image: linear-gradient(hsla(15, 84%, 12%, 1), transparent 1px),
+      linear-gradient(90deg, hsla(15, 84%, 12%, 1), transparent 1px);
   }
 
   .project-status {
@@ -125,11 +139,11 @@ const { project } = Astro.props as Props;
   }
 
   .project-status-dot.completed {
-    background-color: #0f0;
+    background-color: #29cc4c;
   }
 
   .project-status-dot.in-progress {
-    background-color: #3291ff;
+    background-color: #00b4ff;
   }
 
   .project-status-dot.not-started {
