@@ -20,7 +20,7 @@ const { project } = Astro.props as Props;
 
     {
       project.link && (
-        <a href={project.link} target="_blank">
+        <a href={project.link} target="_blank" rel="noopener noreferrer">
           <img
             src="/icons/web_link.svg"
             alt="Web Search"

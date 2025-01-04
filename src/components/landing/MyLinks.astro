@@ -26,7 +26,7 @@ const links = [
 <div class="my-links">
   {
     links.map((link) => (
-      <a href={link.url} target="_blank">
+      <a href={link.url} target="_blank" rel="noopener noreferrer">
         <img src={`/icons/${link.icon}.svg`} alt={link.name} />
         <span>{link.name}</span>
       </a>
