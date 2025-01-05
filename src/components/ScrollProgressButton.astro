@@ -1,9 +1,13 @@
 ---
+import { useTranslations } from "../i18n/utils";
+import type { Lang } from "../types/lang";
 
+const currentLang = Astro.currentLocale as Lang;
+const transtaledLabels = useTranslations(currentLang);
 ---
 
 <button id="scroll-progress-btn" class="scroll-btn large">
-  <span>Scroll Down</span>
+  <span>{transtaledLabels("document.scroll-btn")}</span>
   <img class="arrow-down" src="/icons/arrow_down.svg" alt="arrow down" />
 </button>
 
@@ -55,7 +59,7 @@
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    padding: 2px; /* Grosor del borde */
+    padding: 2px;
     background: conic-gradient(#f80 var(--progress, 0%), transparent 0);
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,

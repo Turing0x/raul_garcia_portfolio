@@ -1,23 +1,46 @@
 ---
 import MyLinks from "./MyLinks.astro";
+import { useTranslations } from "../../i18n/utils";
+import type { Lang } from "../../types/lang";
+
+const currentLang = Astro.currentLocale as Lang;
+
+const transtaledLabels = useTranslations(currentLang);
 ---
 
 <header class="landing-header">
   <section class="main-info-landing">
     <div class="my-name heading-3">👋 Raúl García Fernández</div>
     <div class="heading-1">
-      Full Stack Web <span class="yellow-text">&</span> Mobile Developer
+      {
+        transtaledLabels("header.role")
+          .split("/")
+          .map((text) =>
+            !text.includes("*") ? (
+              text
+            ) : (
+              <>
+                <span class="yellow-text">{text.replaceAll("*", "")}</span>
+              </>
+            )
+          )
+      }
     </div>
 
     <div class="my-description">
-      I'm a <span class="yellow-text">full stack web and mobile developer</span>
-      with a passion for creating <span class="yellow-text"
-        >innovative and efficient solutions</span
-      >. I have a <span class="yellow-text">strong background</span> in JavaScript,
-      TypeScript, Angular, RxJS, Node.js, Flutter - Dart and MongoDB. I'm always
-      looking for new challenges and <span class="yellow-text"
-        >opportunities to learn and grow.
-      </span>
+      {
+        transtaledLabels("header.description")
+          .split("/")
+          .map((text) =>
+            !text.includes("*") ? (
+              text
+            ) : (
+              <>
+                <span class="yellow-text">{text.replaceAll("*", "")}</span>
+              </>
+            )
+          )
+      }
     </div>
   </section>
   <MyLinks />

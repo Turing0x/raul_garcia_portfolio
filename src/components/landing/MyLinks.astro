@@ -26,7 +26,12 @@ const links = [
 <div class="my-links">
   {
     links.map((link) => (
-      <a href={link.url} target="_blank" rel="noopener noreferrer">
+      <a
+        class={link.icon}
+        href={link.url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <img src={`/icons/${link.icon}.svg`} alt={link.name} />
         <span>{link.name}</span>
       </a>
@@ -60,7 +65,7 @@ const links = [
     border-color: #f80;
   }
 
-  .my-links a.cv-link {
+  .my-links a.cv {
     background-color: #f80;
     color: #1d4d62;
   }
@@ -98,8 +103,3 @@ const links = [
     }
   }
 </style>
-
-<script>
-  const cvLink = document.querySelectorAll(".my-links a")[0];
-  cvLink.classList.add("cv-link");
-</script>
