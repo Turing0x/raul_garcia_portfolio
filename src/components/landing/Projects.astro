@@ -33,7 +33,7 @@ const projects: Record<Lang, Project[]> = {
         },
         {
           name: "Shell Scripting",
-          icon: "/icons/shell.svg",
+          icon: "/icons/terminal.svg",
         },
         {
           name: "Node.js",
@@ -68,8 +68,8 @@ const projects: Record<Lang, Project[]> = {
           icon: "/icons/mongo.svg",
         },
         {
-          name: "TropiPay",
-          icon: "/icons/tropipay.webp",
+          name: "i18n",
+          icon: "/icons/i18n.svg",
         },
       ],
       link: "https://4lifetips.com/",
@@ -156,8 +156,16 @@ const projects: Record<Lang, Project[]> = {
       ],
       stack: [
         {
+          name: "Linux",
+          icon: "/icons/linux.svg",
+        },
+        {
           name: "Angular",
           icon: "/icons/angular.svg",
+        },
+        {
+          name: "Shell Scripting",
+          icon: "/icons/terminal.svg",
         },
         {
           name: "Node.js",
@@ -192,8 +200,8 @@ const projects: Record<Lang, Project[]> = {
           icon: "/icons/mongo.svg",
         },
         {
-          name: "TropiPay",
-          icon: "/icons/tropipay.webp",
+          name: "i18n",
+          icon: "/icons/i18n.svg",
         },
       ],
       link: "https://4lifetips.com/",
@@ -272,7 +280,7 @@ const projects: Record<Lang, Project[]> = {
 <section id="projects" class="projects">
   <h2 class="heading-2">{transtaledLabels("projects.title")}</h2>
   <div class="projects-container">
-    {(<ProjectCard project={projects[currentLang][1]} />)}
+    {projects[currentLang].map((project) => <ProjectCard project={project} />)}
   </div>
 </section>
 
