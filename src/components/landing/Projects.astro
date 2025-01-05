@@ -1,77 +1,148 @@
 ---
+import type { Lang } from "../../types/lang";
 import type { Project } from "../../types/project";
 import ProjectCard from "./ProjectCard.astro";
+import { useTranslations } from "../../i18n/utils";
 
-const projects: Project[] = [
-  {
-    title: "Network Service Configuration Module",
-    description:
-      "I led the development of an innovative semi-automated system that revolutionized how telematic services are configured in Linux environments. This solution transformed traditional manual configuration methods into a streamlined, efficient process for educational settings.",
-    status: "completed",
-    achivements: [
-      "Reduced configuration time by 70% through intelligent automation",
-      "Enhanced learning outcomes with interactive practice scenarios",
-      "Implemented robust error handling and validation systems",
-      "Created an intuitive interface for both educators and students",
-    ],
-    stack: "Linux, Angular, Shell Scripting, Node.js",
-    link: "https://github.com/Turing0x/frontend-tesis",
-    linkText: "See code on GitHub",
-  },
-  {
-    title: "4Life Tips | Health Product Platform",
-    description:
-      "Architected a dynamic platform that bridges the gap between health products and consumer understanding, focusing on accessibility and user education.",
-    status: "completed",
-    achivements: [
-      "Intelligent product recommendation engine",
-      "Interactive product guides",
-      "Secure payment processing",
-      "Mobile-first responsive design",
-    ],
-    stack: "Angular, Node.js, MongoDB, TropiPay",
-    link: "https://4lifetips.com/",
-    linkText: "See web page",
-  },
-  {
-    title: "IndustrialX | E-commerce Solution",
-    description:
-      "Developing a cutting-edge e-commerce platform tailored for Cuba's food industry, focusing on creating seamless connections between vendors and consumers.",
-    status: "in-progress",
-    achivements: [
-      "Real-time inventory management",
-      "TropiPay payment integration",
-      "Advanced search and filtering",
-      "Mobile-responsive design",
-      "Push notification system",
-    ],
-    stack: "Angular, Node.js, MongoDB, TropiPay",
-    link: "https://industialx-frontend.pages.dev/",
-    linkText: "See web page",
-  },
-  {
-    title: "Travel With Me | Transportation Platform",
-    description:
-      "Revolutionized Cuba's travel industry with a mobile-first platform that streamlines transportation services across the country.",
-    status: "not-started",
-    achivements: [
-      "Real-time booking system",
-      "Provider management dashboard",
-      "Route optimization",
-      "Integrated payment solutions",
-      "Offline functionality",
-    ],
-    stack: " Flutter, Node.js, MongoDB, Firebase",
-    link: "",
-    linkText: "Mobile Application",
-  },
-];
+const currentLang = Astro.currentLocale as Lang;
+const transtaledLabels = useTranslations(currentLang);
+
+const projects: Record<Lang, Project[]> = {
+  en: [
+    {
+      title: "Network Service Configuration Module",
+      description:
+        "This project represents a major advancement in /*educational technology*/, developed as my /*thesis project*/ at the University of Computer Sciences /*(UCI)*/. This solution addresses a challenge in teaching /*network administration*/ by automating the complex process of configuring telematics services on Linux systems. The module /*intelligently generates*/ configuration files for essential network services, /*transforming*/ what was previously a manual task into an /*efficient, semi-automated process*/. The system significantly reduces configuration errors and setup time, allowing students to /*focus on teaching core concepts*/ rather than solving technical problems.",
+      status: "completed",
+      achivements: [
+        "Reduced configuration time by 70% through intelligent automation",
+        "Enhanced learning outcomes with interactive practice scenarios",
+        "Implemented robust error handling and validation systems",
+        "Created an intuitive interface for both educators and students",
+      ],
+      stack: "Linux, Angular, Shell Scripting, Node.js",
+      link: "https://github.com/Turing0x/frontend-tesis",
+      linkText: "See code on GitHub",
+    },
+    {
+      title: "4Life Tips | Health Product Platform",
+      description:
+        "4Life Tips is a resource that provides /*detailed guides and recommendations*/ for the use of 4Life products, focused on improving immune function and /*overall wellness*/. The platform is dedicated to offering information on the /*benefits*/ of products such as 4Life Transfer Factor, promoting a /*balanced approach to health*/ through nutrition, antioxidants, cognitive support, and more. Additionally, the site highlights special offers, such as discounts, and emphasizes the importance of /*consulting with healthcare professionals*/ before using products in medical contexts.",
+      status: "completed",
+      achivements: [
+        "Intelligent product recommendation engine",
+        "Interactive product guides",
+        "Secure payment processing",
+        "Mobile-first responsive design",
+      ],
+      stack: "Angular, Node.js, MongoDB, TropiPay",
+      link: "https://4lifetips.com/",
+      linkText: "See web page",
+    },
+    {
+      title: "IndustrialX | E-commerce Solution",
+      description:
+        "An /*e-commerce*/ platform is being developed for the marketing of food products in Cuba. The main objective of this project is to /*modernize and streamline*/ the buying and selling process in the /*food sector*/, offering an intuitive and accessible user experience for both merchants and consumers. It integrates the /*TropiPay payment gateway*/ to facilitate /*safe and reliable*/ transactions, adapted to the local context. The project seeks to meet a growing need in the /*Cuban market*/, offering an efficient solution for the marketing and distribution of food in a digital environment.",
+      status: "in-progress",
+      achivements: [
+        "Real-time inventory management",
+        "TropiPay payment integration",
+        "Advanced search and filtering",
+        "Mobile-responsive design",
+        "Push notification system",
+      ],
+      stack: "Angular, Node.js, MongoDB, TropiPay",
+      link: "https://industialx-frontend.pages.dev/",
+      linkText: "See web page",
+    },
+    {
+      title: "Travel With Me | Transportation Platform",
+      description:
+        "Travel With Me will be a /*transformative mobile solution*/ designed specifically for the /*transportation landscape in Cuba*/. This /*Flutter-based application*/ will revolutionize the way /*Cuban travel agencies and transportation providers*/ connect with their customers, offering a /*one-stop platform*/ that integrates various modes of transportation, including taxis, buses, and cargo services. The platform will aim to /*bridge the gap between service providers and customers*/, modernizing the traditional booking process while considering /*local technological limitations*/ and /*market dynamics*/.",
+      status: "not-started",
+      achivements: [
+        "Real-time booking system",
+        "Provider management dashboard",
+        "Route optimization",
+        "Integrated payment solutions",
+        "Offline functionality",
+      ],
+      stack: "Flutter, Node.js, MongoDB, Firebase",
+      link: "",
+      linkText: "Mobile Application",
+    },
+  ],
+  es: [
+    {
+      title: "Módulo de Configuración de Servicios de Red",
+      description:
+        "Este proyecto representa un gran avance en la /*tecnología educativa*/, desarrollado como mi /*proyecto de tesis*/ en la Universidad de las Ciencias Informáticas /*(UCI)*/. Esta solución aborda un desafío en la enseñanza de la /*administración de redes*/ al automatizar el complejo proceso de configuración de servicios telemáticos en sistemas Linux. El módulo /*genera de manera inteligente*/ archivos de configuración para servicios de red esenciales, /*transformando*/ lo que antes era una tarea manual en un /*proceso eficiente y semiautomatizado*/. El sistema reduce significativamente los errores de configuración y el tiempo de configuración, lo que permite a los estudiantes /*concentrarse en enseñar conceptos básicos*/ en lugar de resolver problemas técnicos.",
+      status: "completed",
+      achivements: [
+        "Reducción del tiempo de configuración en un 70% mediante automatización inteligente",
+        "Mejora de los resultados de aprendizaje con escenarios prácticos interactivos",
+        "Implementación de sistemas robustos de manejo de errores y validación",
+        "Creación de una interfaz intuitiva tanto para educadores como estudiantes",
+      ],
+      stack: "Linux, Angular, Shell Scripting, Node.js",
+      link: "https://github.com/Turing0x/frontend-tesis",
+      linkText: "Ver código en GitHub",
+    },
+    {
+      title: "4Life Tips | Plataforma de Productos de Salud",
+      description:
+        "4Life Tips es un recurso que proporciona /*guías detalladas y recomendaciones*/ para el uso de los productos 4Life, enfocados en mejorar la función inmunitaria y el /*bienestar general*/. La plataforma se dedica a ofrecer información sobre los /*beneficios*/ de productos como 4Life Transfer Factor, promoviendo un /*enfoque equilibrado de la salud*/ a través de la nutrición, los antioxidantes, el apoyo cognitivo y otros aspectos. Además, el sitio resalta ofertas especiales, como descuentos, y enfatiza la importancia de /*consultar a profesionales*/ de la salud antes de utilizar los productos en contextos médicos",
+      status: "completed",
+      achivements: [
+        "Motor de recomendación de productos inteligente",
+        "Guías interactivas de productos",
+        "Procesamiento seguro de pagos",
+        "Diseño responsivo mobile-first",
+      ],
+      stack: "Angular, Node.js, MongoDB, TropiPay",
+      link: "https://4lifetips.com/",
+      linkText: "Ver página web",
+    },
+    {
+      title: "IndustrialX | Solución de Comercio Electrónico",
+      description:
+        "Se encuentra en desarrollo una plataforma de /*comercio electrónico*/ orientada a la comercialización de productos alimenticios en Cuba. El objetivo principal de este proyecto es /*modernizar y agilizar*/ el proceso de compra y venta en el /*sector alimenticio*/, ofreciendo una experiencia de usuario intuitiva y accesible tanto para comerciantes como para consumidores. Integra la /*pasarela de pago TropiPay*/ para facilitar transacciones /*seguras y confiables*/, adaptadas al contexto local. El proyecto busca cubrir una necesidad creciente en el /*mercado cubano*/, ofreciendo una solución eficiente para la comercialización y distribución de alimentos en un entorno digital.",
+      status: "in-progress",
+      achivements: [
+        "Gestión de inventario en tiempo real",
+        "Integración de pagos con TropiPay",
+        "Búsqueda y filtrado avanzado",
+        "Diseño responsivo para móviles",
+        "Sistema de notificaciones push",
+      ],
+      stack: "Angular, Node.js, MongoDB, TropiPay",
+      link: "https://industialx-frontend.pages.dev/",
+      linkText: "Ver página web",
+    },
+    {
+      title: "Travel With Me | Plataforma de Transporte",
+      description:
+        "Travel With Me será una /*solución móvil transformadora*/ diseñada específicamente para el /*panorama de transporte en Cuba*/. Esta aplicación basada en Flutter revolucionará la forma en que las /*agencias de viajes y los proveedores de transporte cubanos*/ se conectan con sus clientes, ofreciendo una plataforma integral que integra varios modos de transporte, incluidos taxis, autobuses y servicios de carga. La plataforma tendrá como objetivo /*cerrar la brecha entre los proveedores de servicios y los clientes*/, modernizando el proceso de reserva tradicional al tiempo que considera las limitaciones tecnológicas locales y la /*dinámica del mercado*/.",
+      status: "not-started",
+      achivements: [
+        "Sistema de reservas en tiempo real",
+        "Panel de gestión para proveedores",
+        "Optimización de rutas",
+        "Soluciones de pago integradas",
+        "Funcionalidad sin conexión",
+      ],
+      stack: "Flutter, Node.js, MongoDB, Firebase",
+      link: "",
+      linkText: "Aplicación Móvil",
+    },
+  ],
+};
 ---
 
 <section id="projects" class="projects">
-  <h2 class="heading-2">Projects</h2>
+  <h2 class="heading-2">{transtaledLabels("projects.title")}</h2>
   <div class="projects-container">
-    {projects.map((project) => <ProjectCard project={project} />)}
+    {projects[currentLang].map((project) => <ProjectCard project={project} />)}
   </div>
 </section>
 

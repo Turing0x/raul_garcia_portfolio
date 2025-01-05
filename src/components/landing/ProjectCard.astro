@@ -5,12 +5,6 @@ interface Props {
   project: Project;
 }
 
-const getProjectStatus = (status: string) => {
-  if (status === "completed") return "Completed";
-  if (status === "in-progress") return "In Progress";
-  if (status === "not-started") return "Coming Soon";
-};
-
 const { project } = Astro.props as Props;
 ---
 
@@ -33,11 +27,19 @@ const { project } = Astro.props as Props;
     }
   </span>
 
-  <p class="heading-4">{project.description}</p>
-  <div class="project-status">
-    <div class={`project-status-dot ${project.status}`}></div>
-    <p class="heading-4">{getProjectStatus(project.status)}</p>
-  </div>
+  <p class="heading-4">
+    {
+      project.description.split("/").map((text) =>
+        !text.includes("*") ? (
+          text
+        ) : (
+          <>
+            <span class="yellow-text">{text.replaceAll("*", "")}</span>
+          </>
+        )
+      )
+    }
+  </p>
 </div>
 
 <style>

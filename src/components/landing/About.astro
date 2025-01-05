@@ -1,65 +1,113 @@
 ---
-const skills = {
-  frontend: [
-    { name: "Angular (Senior)", isSenior: true },
-    { name: "React", isSenior: false },
-    { name: "TypeScript", isSenior: false },
-    { name: "Flutter/Dart", isSenior: false },
-    { name: "HTML/CSS", isSenior: false },
-    { name: "Tailwind", isSenior: false },
-  ],
-  backend: [
-    { name: "Node.js/Express (Senior)", isSenior: true },
-    { name: "MongoDB (Senior)", isSenior: true },
-    { name: "Socket.io (Senior)", isSenior: true },
-    { name: "Spring Boot", isSenior: false },
-    { name: "MySQL", isSenior: false },
-  ],
-  tools: [
-    { name: "Team Leadership", isSenior: true },
-    { name: "Project Management", isSenior: true },
-    { name: "Git/GitHub", isSenior: false },
-    { name: "Figma", isSenior: false },
-    { name: "Postman", isSenior: false },
-    { name: "System Architecture", isSenior: false },
-  ],
+import { useTranslations } from "../../i18n/utils";
+import type { Lang } from "../../types/lang";
+
+const currentLang = Astro.currentLocale as Lang;
+const transtaledLabels = useTranslations(currentLang);
+
+const skills: Record<
+  Lang,
+  Record<string, { name: string; isSenior: boolean }[]>
+> = {
+  en: {
+    frontend: [
+      { name: "Angular (Senior)", isSenior: true },
+      { name: "React", isSenior: false },
+      { name: "TypeScript", isSenior: false },
+      { name: "Flutter/Dart", isSenior: false },
+      { name: "HTML/CSS", isSenior: false },
+      { name: "Tailwind", isSenior: false },
+    ],
+    backend: [
+      { name: "Node.js/Express (Senior)", isSenior: true },
+      { name: "MongoDB (Senior)", isSenior: true },
+      { name: "Socket.io (Senior)", isSenior: true },
+      { name: "Spring Boot", isSenior: false },
+      { name: "MySQL", isSenior: false },
+    ],
+    tools: [
+      { name: "Team Leadership", isSenior: true },
+      { name: "Project Management", isSenior: true },
+      { name: "Git/GitHub", isSenior: false },
+      { name: "Figma", isSenior: false },
+      { name: "Postman", isSenior: false },
+      { name: "System Architecture", isSenior: false },
+    ],
+  },
+  es: {
+    frontend: [
+      { name: "Angular (Senior)", isSenior: true },
+      { name: "React", isSenior: false },
+      { name: "TypeScript", isSenior: false },
+      { name: "Flutter/Dart", isSenior: false },
+      { name: "HTML/CSS", isSenior: false },
+      { name: "Tailwind", isSenior: false },
+    ],
+    backend: [
+      { name: "Node.js/Express (Senior)", isSenior: true },
+      { name: "MongoDB (Senior)", isSenior: true },
+      { name: "Socket.io (Senior)", isSenior: true },
+      { name: "Spring Boot", isSenior: false },
+      { name: "MySQL", isSenior: false },
+    ],
+    tools: [
+      { name: "Liderazgo de Equipo", isSenior: true },
+      { name: "Gestión de Proyectos", isSenior: true },
+      { name: "Git/GitHub", isSenior: false },
+      { name: "Figma", isSenior: false },
+      { name: "Postman", isSenior: false },
+      { name: "Arquitectura del Sistema", isSenior: false },
+    ],
+  },
 };
 
-const attributes = [
-  "Strong analytical and problem-solving skills developed through complex project management",
-  "Effective team leadership and communication abilities",
-  "Dedicated to continuous learning and always using the latest technological trends",
-  "Ability to balance technical excellence with business objectives",
-];
+const attributes: Record<Lang, string[]> = {
+  en: [
+    "Strong analytical and problem-solving skills developed through complex project management",
+    "Effective team leadership and communication abilities",
+    "Dedicated to continuous learning and always using the latest technological trends",
+    "Ability to balance technical excellence with business objectives",
+  ],
+  es: [
+    "Fuertes habilidades analíticas y de resolución de problemas desarrolladas a través de la gestión de proyectos complejos",
+    "Capacidades efectivas de liderazgo de equipo y comunicación",
+    "Dedicado al aprendizaje continuo y siempre utilizando las últimas tendencias tecnológicas",
+    "Capacidad para equilibrar la excelencia técnica con los objetivos comerciales",
+  ],
+};
 ---
 
 <section id="about" class="about-section">
   <div class="about-container">
-    <h2 class="heading-1">About Me</h2>
+    <h2 class="heading-1">{transtaledLabels("about.title")}</h2>
 
     <div class="about-content">
       <div class="personal-info">
         <p class="description">
-          I am a <span class="yellow-text">Computer Science Engineer</span>
-          graduated with a strong academic record and extensive industry experience
-          as a <span class="yellow-text">senior full-stack developer</span>. I
-          specialize in crafting efficient, functional, and visually appealing
-          applications, focusing on <span class="yellow-text"
-            >user experience, interface design, and database optimization</span
-          >. My blend of theoretical knowledge and practical expertise allows me
-          to deliver high-quality technological solutions with strategic
-          precision.
+          {
+            transtaledLabels("about.personal-info.description")
+              .split("/")
+              .map((text) =>
+                !text.includes("*") ? (
+                  text
+                ) : (
+                  <>
+                    <span class="yellow-text">{text.replaceAll("*", "")}</span>
+                  </>
+                )
+              )
+          }
         </p>
       </div>
 
       <div class="expertise">
-        <h3 class="heading-3">Core Expertise</h3>
+        <h3 class="heading-3">{transtaledLabels("about.expertise.title")}</h3>
         <div class="skills-grid">
           <div class="skill-category">
             <h4 class="heading-4">Frontend</h4>
             <ul>
               {
-                skills.frontend.map((skill) => (
+                skills[currentLang].frontend.map((skill) => (
                   <li class={skill.isSenior ? "with-border" : ""}>
                     {skill.name}
                   </li>
@@ -71,7 +119,7 @@ const attributes = [
             <h4 class="heading-4">Backend</h4>
             <ul>
               {
-                skills.backend.map((skill) => (
+                skills[currentLang].backend.map((skill) => (
                   <li class={skill.isSenior ? "with-border" : ""}>
                     {skill.name}
                   </li>
@@ -80,10 +128,10 @@ const attributes = [
             </ul>
           </div>
           <div class="skill-category">
-            <h4 class="heading-4">Tools & Others</h4>
+            <h4 class="heading-4">{transtaledLabels("about.expertise.3")}</h4>
             <ul>
               {
-                skills.tools.map((skill) => (
+                skills[currentLang].tools.map((skill) => (
                   <li class={skill.isSenior ? "with-border" : ""}>
                     {skill.name}
                   </li>
@@ -95,10 +143,12 @@ const attributes = [
       </div>
 
       <div class="key-attributes">
-        <h3 class="heading-3">Key Professional Attributes</h3>
+        <h3 class="heading-3">
+          {transtaledLabels("about.key-attributes.title")}
+        </h3>
         <div class="attributes-grid">
           {
-            attributes.map((attribute) => (
+            attributes[currentLang].map((attribute) => (
               <div class="attribute-item">
                 <p class="heading-4">{attribute}</p>
               </div>

@@ -124,8 +124,8 @@ import { ClientRouter } from "astro:transitions";
 
   .heading-4 {
     font-size: 18px;
-    line-height: 24px;
-    letter-spacing: 0.03em;
+    line-height: 28px;
+    letter-spacing: 0.04em;
     font-family: "space-grotesk-light", sans-serif;
   }
 
@@ -278,3 +278,18 @@ import { ClientRouter } from "astro:transitions";
     }
   }
 </style>
+
+<script>
+  const initLanguageDetection = () => {
+    const defaultLanguage = navigator.language.split("-")[0];
+    const supportedLanguages = ["en", "es"];
+    const currentPath = window.location.pathname;
+
+    if (currentPath === "/" && supportedLanguages.includes(defaultLanguage)) {
+      window.location.pathname = `/${defaultLanguage}${currentPath}`;
+    }
+  };
+
+  initLanguageDetection();
+  document.addEventListener("astro:after-swap", initLanguageDetection);
+</script>

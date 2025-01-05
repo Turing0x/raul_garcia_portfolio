@@ -6,7 +6,11 @@ const currentLang = Astro.currentLocale as Lang;
 const transtaledLabels = useTranslations(currentLang);
 ---
 
-<button id="scroll-progress-btn" class="scroll-btn large">
+<button
+  id="scroll-progress-btn"
+  class="scroll-btn large"
+  data-lang={currentLang}
+>
   <span>{transtaledLabels("document.scroll-btn")}</span>
   <img class="arrow-down" src="/icons/arrow_down.svg" alt="arrow down" />
 </button>
@@ -102,46 +106,53 @@ const transtaledLabels = useTranslations(currentLang);
 </style>
 
 <script>
-  const btn = document.getElementById("scroll-progress-btn");
+  const initScrollButton = () => {
+    const btn = document.getElementById("scroll-progress-btn");
+    if (!btn) return;
 
-  const calculateScrollProgress = () => {
-    const windowHeight =
-      document.documentElement.scrollHeight - window.innerHeight;
-    const scrolled = window.scrollY;
-    const progress = (scrolled / windowHeight) * 100;
-    return Math.min(progress, 100);
-  };
+    const calculateScrollProgress = () => {
+      const windowHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = window.scrollY;
+      const progress = (scrolled / windowHeight) * 100;
+      return Math.min(progress, 100);
+    };
 
-  const updateProgress = () => {
-    if (btn) {
+    const updateProgress = () => {
+      const lang = btn.getAttribute("data-lang");
       const progress = calculateScrollProgress();
       btn.style.setProperty("--progress", `${progress}%`);
 
       if (progress > 0) {
         btn.classList.remove("large");
         btn.classList.add("short");
-
         btn.innerHTML = `<img src="/icons/arrow_up.svg" alt="arrow up" />`;
       } else {
         btn.classList.remove("short");
         btn.classList.add("large");
-
         btn.innerHTML = `
-        <span>Scroll Down</span>
-        <img class="arrow-down" src="/icons/arrow_down.svg" alt="arrow down" />
+          <span>${lang === "en" ? "Scroll Down" : "Desplazar hacia abajo"}</span>
+          <img class="arrow-down" src="/icons/arrow_down.svg" alt="arrow down" />
         `;
       }
-    }
-  };
+    };
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    };
+
+    window.addEventListener("scroll", updateProgress);
+    btn.addEventListener("click", scrollToTop);
+
+    document.addEventListener("astro:before-preparation", () => {
+      window.removeEventListener("scroll", updateProgress);
+      btn.removeEventListener("click", scrollToTop);
     });
   };
 
-  // Event listeners
-  window.addEventListener("scroll", updateProgress);
-  btn?.addEventListener("click", scrollToTop);
+  initScrollButton();
+  document.addEventListener("astro:after-swap", initScrollButton);
 </script>
