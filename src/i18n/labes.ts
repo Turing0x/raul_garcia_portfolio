@@ -10,7 +10,7 @@ export const labels: Record<Lang, Record<string, string>> = {
 
     "header.role": "Full Stack Web /*&*/ Mobile Developer",
     "header.description":
-      "I'm /*full stack web and mobile developer*/ with a passion for creating /*innovative and efficient solutions*/. I have a /*strong background*/ in JavaScript, TypeScript, Angular, RxJS, Node.js, Flutter - Dart and MongoDB. I'm always looking for new challenges and /*opportunities to learn and grow.*/",
+      "/*Passionate about crafting innovative and efficient digital solutions*/, I thrive on transforming complex ideas into elegant applications. With /*deep expertise*/ in TypeScript, Angular, Node.js and MongoDB, I'm always seeking ways to /*elevate development practices*/ and deliver /*exceptional results*/. My /*enthusiasm for learning*/ drives me to tackle challenging projects that push the boundaries of what's possible in /*web and mobile development*/.",
 
     // Header end
 
@@ -46,7 +46,7 @@ export const labels: Record<Lang, Record<string, string>> = {
 
     "header.role": "Desarrollador Full Stack Web /*&*/ Móvil",
     "header.description":
-      "Soy /*desarrollador web y móvil full stack*/ con pasión por crear /*soluciones innovadoras y eficientes*/. Tengo una /*sólida formación*/ en JavaScript, TypeScript, Angular, RxJS, Node.js, Flutter - Dart y MongoDB. Siempre estoy buscando nuevos desafíos y /*oportunidades para aprender y crecer.*/",
+      "/*Apasionado por crear soluciones digitales innovadoras y eficientes*/, me encanta transformar ideas complejas en aplicaciones elegantes. Con /*profunda experiencia*/ en TypeScript, Angular, Node.js y MongoDB, siempre estoy buscando formas de /*elevar las prácticas de desarrollo*/ y ofrecer /*resultados excepcionales*/. Mi /*entusiasmo por aprender*/ me impulsa a abordar proyectos desafiantes que amplían los límites de lo posible en el /*desarrollo web y móvil*/.",
 
     // Header end
 
