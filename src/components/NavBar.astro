@@ -22,14 +22,18 @@ const links = {
 <div class="nav-bar">
   <ul class="nav-bar-list">
     {
-      links[currentLang].map((link) => (
-        <li class="nav-bar-item" title={link.title}>
+      links[currentLang].map((link, index) => (
+        <li
+          class="nav-bar-item fade-in"
+          style={`animation-delay: ${index * 0.1}s`}
+          title={link.title}
+        >
           <a href={link.href}>{link.name}</a>
         </li>
       ))
     }
 
-    <li class="nav-bar-item language-toggle">
+    <li class="nav-bar-item language-toggle slide-in">
       <a
         class="lang-btn"
         href={`/${currentLang === "en" ? "es" : "en"}`}
@@ -64,6 +68,7 @@ const links = {
     color: rgba(255, 255, 255, 0.6);
     cursor: pointer;
     position: relative;
+    transition: color 0.3s ease;
   }
 
   .nav-bar-item::after {
@@ -110,10 +115,46 @@ const links = {
     border: none;
     color: #e2e2e2;
     cursor: pointer;
+    transition: color 0.3s ease;
   }
 
   .lang-btn:hover {
     color: var(--border-hover-color);
+  }
+
+  /* Animation keyframes */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Animation classes */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .slide-in {
+    opacity: 0;
+    animation: slideIn 0.5s ease-out forwards;
+    animation-delay: 0.4s;
   }
 
   @media (max-width: 768px) {
