@@ -1,6 +1,6 @@
 export type Project = {
   title: string;
-  shortDescription?: string;
+  shortDescription: string;
   description: string;
   status: "completed" | "in-progress" | "not-started";
   achivements: string[];

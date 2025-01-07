@@ -1,6 +1,5 @@
 ---
 import "../../styles/projectCard.css";
-
 import type { Project } from "../../types/project";
 
 interface Props {
@@ -19,36 +18,47 @@ const { project } = Astro.props as Props;
 <div class={`project ${project.status}`}>
   <span class="project-header">
     <h3 class="project-title heading-3">{project.title}</h3>
-
-    <span class="project-link">
+    <span class="project-hover">
       <img
         src="/icons/hand.svg"
         alt="Web Search"
         title="Read more about this project"
       />
-
-      <p class="heading-4">Hover to read more</p>
+      <p class="heading-4">Hover to more details</p>
     </span>
   </span>
 
-  <div class="project-details">
-    <div class="left-side">
-      <p class="heading-4">
+  <div class="project-content">
+    <div class="project-description">
+      <p class="heading-4 description">
         {
-          project.description!.split("/").map((text) =>
-            !text.includes("*") ? (
-              text
-            ) : (
-              <>
-                <span class="yellow-text">{text.replaceAll("*", "")}</span>
-              </>
+          project.description
+            .split("/")
+            .map((text) =>
+              !text.includes("*") ? (
+                text
+              ) : (
+                <span class="highlight">{text.replaceAll("*", "")}</span>
+              )
             )
-          )
+        }
+      </p>
+      <p class="heading-4 shortDescription">
+        {
+          project.shortDescription
+            .split("/")
+            .map((text) =>
+              !text.includes("*") ? (
+                text
+              ) : (
+                <span class="highlight">{text.replaceAll("*", "")}</span>
+              )
+            )
         }
       </p>
     </div>
 
-    <div class="right-side">
+    <div class="project-details">
       <div class="achievements">
         <h4 class="heading-4">Key Achievements</h4>
         <ul>
@@ -62,51 +72,88 @@ const { project } = Astro.props as Props;
     </div>
   </div>
 
-  <div class="resume">
+  <div class="project-footer">
     <div class="project-status">
-      <div class={`project-status-dot ${project.status}`}></div>
+      <div class={`status-dot ${project.status}`}></div>
       <p class="heading-4">{getProjectStatus(project.status)}</p>
     </div>
 
-    <div class="project-stack">
+    <div class="tech-stack">
       {
-        project.stack?.map((stack) => (
-          <span class="heading-4">
-            <img src={stack.icon} alt={stack.name} />
-            {stack.name}
+        project.stack?.map((tech) => (
+          <span class="tech-item heading-4" title={tech.name}>
+            <img src={tech.icon} alt={tech.name} />
+            <span class="tech-name">{tech.name}</span>
           </span>
         ))
       }
     </div>
 
-    <div class="project-links">
+    <div class="action-links">
       {
         project.code && (
           <a
             href={project.code}
             target="_blank"
             rel="noopener noreferrer"
-            class="project-link-button code"
+            class="action-button code"
           >
-            <p class="heading-4">Code</p>
-            <img src="/icons/github.svg" alt="See code on GitHub" />
+            <span class="heading-4">Code</span>
+            <img src="/icons/github.svg" alt="View code on GitHub" />
           </a>
         )
       }
-
       {
         project.link && (
           <a
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            class="project-link-button web"
+            class="action-button demo"
           >
-            <p class="heading-4">Web</p>
-            <img src="/icons/web_link.svg" alt="Visit web page" />
+            <span class="heading-4">Demo</span>
+            <img src="/icons/web_link.svg" alt="View live demo" />
           </a>
         )
       }
     </div>
   </div>
 </div>
+
+<script>
+  const cards = document.querySelectorAll(".project") as NodeListOf<Element>;
+
+  cards.forEach((card) => {
+    if (card instanceof HTMLDivElement) {
+      card.addEventListener("mousemove", (e: MouseEvent) =>
+        handleMouseMove(e, card)
+      );
+
+      card.addEventListener("mouseleave", () => handleLeave(card));
+      card.addEventListener("mouseenter", () => handleHover(card));
+    }
+  });
+
+  function handleHover(card: HTMLDivElement) {
+    const hoverText = card.querySelector(
+      ".project-header .project-hover .heading-4"
+    ) as HTMLSpanElement;
+    hoverText.innerText = "Leave to less details";
+  }
+
+  function handleLeave(card: HTMLDivElement) {
+    const hoverText = card.querySelector(
+      ".project-header .project-hover .heading-4"
+    ) as HTMLSpanElement;
+    hoverText.innerText = "Hover to more details";
+  }
+
+  function handleMouseMove(e: MouseEvent, card: HTMLDivElement) {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    (card as HTMLElement).style.setProperty("--mouse-x", `${x}px`);
+    (card as HTMLElement).style.setProperty("--mouse-y", `${y}px`);
+  }
+</script>
