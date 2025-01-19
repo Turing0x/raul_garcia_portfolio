@@ -1,6 +1,7 @@
 ---
-import "../../styles/projectCard.css";
 import type { Project } from "../../types/project";
+import { useTranslations } from "../../i18n/utils";
+import type { Lang } from "../../types/lang";
 
 interface Props {
   project: Project;
@@ -11,6 +12,9 @@ const getProjectStatus = (status: string) => {
   if (status === "in-progress") return "In Progress";
   if (status === "not-started") return "Coming Soon";
 };
+
+const currentLang = Astro.currentLocale as Lang;
+const transtaledLabels = useTranslations(currentLang);
 
 const { project } = Astro.props as Props;
 ---
@@ -24,7 +28,7 @@ const { project } = Astro.props as Props;
         alt="Web Search"
         title="Read more about this project"
       />
-      <p class="heading-4">Hover to more details</p>
+      <p class="heading-4">{transtaledLabels("hoverToMoreDetails")}</p>
     </span>
   </span>
 
@@ -60,7 +64,7 @@ const { project } = Astro.props as Props;
 
     <div class="project-details">
       <div class="achievements">
-        <h4 class="heading-4">Key Achievements</h4>
+        <h4 class="heading-4">{transtaledLabels("key-achievements")}</h4>
         <ul>
           {
             project.achivements.map((achievement) => (

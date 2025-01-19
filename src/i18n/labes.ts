@@ -5,6 +5,11 @@ export const labels: Record<Lang, Record<string, string>> = {
     "document.scroll-btn": "Scroll down",
     "projects.title": "Projects",
     "about.title": "About me",
+    hoverToMoreDetails: "Hover to more details",
+    "project.status.completed": "Completed",
+    "project.status.in-progress": "In Progress",
+    "project.status.not-started": "Coming Soon",
+    "key-achievements": "Key Achievements",
 
     // Header start
 
@@ -41,6 +46,11 @@ export const labels: Record<Lang, Record<string, string>> = {
     "document.scroll-btn": "Desplazar hacia abajo",
     "projects.title": "Proyectos",
     "about.title": "Sobre mí",
+    hoverToMoreDetails: "Ponte encima para más detalles",
+    "project.status.completed": "Completado",
+    "project.status.in-progress": "En Progreso",
+    "project.status.not-started": "Próximamente",
+    "key-achievements": "Logros Clave",
 
     // Header start
 
