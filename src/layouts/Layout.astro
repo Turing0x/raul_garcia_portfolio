@@ -4,10 +4,13 @@ import NavBar from "../components/NavBar.astro";
 import ScrollProgressButton from "../components/ScrollProgressButton.astro";
 
 import { ClientRouter } from "astro:transitions";
+import type { Lang } from "../types/lang";
+
+const currentLang = Astro.currentLocale as Lang;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={currentLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />

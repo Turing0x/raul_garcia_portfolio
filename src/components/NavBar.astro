@@ -9,12 +9,24 @@ const links = {
     { name: "Projects", href: "#projects", title: "View my projects" },
     { name: "About", href: "#about", title: "Learn more about me" },
     { name: "Contact", href: "#contact", title: "Get in touch" },
+    {
+      name: "Portfolio Applications",
+      href: "https://apps.neptunosoftware.com/",
+      title: "View my portfolio applications",
+      openInNewTab: true,
+    },
   ],
   es: [
     { name: "Inicio", href: "/", title: "Ir a la página de inicio" },
     { name: "Proyectos", href: "#projects", title: "Ver mis proyectos" },
     { name: "Sobre mí", href: "#about", title: "Conocer más sobre mí" },
     { name: "Contacto", href: "#contact", title: "Contactar conmigo" },
+    {
+      name: "Portafolio de aplicaciones",
+      href: "https://apps.neptunosoftware.com/",
+      title: "Ver mi portafolio de aplicaciones",
+      openInNewTab: true,
+    },
   ],
 };
 ---
@@ -28,7 +40,9 @@ const links = {
           style={`animation-delay: ${index * 0.1}s`}
           title={link.title}
         >
-          <a href={link.href}>{link.name}</a>
+          <a href={link.href} target={link.openInNewTab ? "_blank" : "_self"}>
+            {link.name}
+          </a>
         </li>
       ))
     }
